@@ -11,7 +11,7 @@ phases:
     commands:
     - echo Logging in to Amazon ECR....
     - aws --version
-    - $(aws ecr get-login --no-include-email --region $CI_REGION)
+    - aws ecr get-login-password | docker login --username AWS --password-stdin $REPOSITORY_URI/vpbank-hackathon
   build: 
     commands: 
     - echo Build started on `date`
