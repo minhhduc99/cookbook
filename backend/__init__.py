@@ -1,7 +1,7 @@
 from datetime import timedelta
 import os
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, 
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
@@ -51,6 +51,10 @@ def index():
 @app.route('/api')
 def documentation():
     return render_template('documentation.html')
+
+@app.route('/api/healthcheck')
+def healthcheck():
+    return Response({"status":"Healthy"},status=200)
 
 # @app.errorhandler(404)
 # def not_found(e):
