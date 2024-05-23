@@ -17,6 +17,7 @@ phases:
     - docker build -t $REPOSITORY_URI/be:$CODEBUILD_BUILD_NUMBER . -f ./docker/be/Dockerfile
   post_build: 
     commands: 
-    - echo Build completed on `date` 
+    - echo Build completed on `date`
+    - echo $CODEBUILD_BUILD_NUMBER
     - echo pushing to repo
     - docker push $REPOSITORY_URI/be:$CODEBUILD_BUILD_NUMBER
