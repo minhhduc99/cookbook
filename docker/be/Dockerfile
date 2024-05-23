@@ -1,5 +1,6 @@
 # backend dockerfile
 FROM ubuntu:18.04
+ARG DEBIAN_FRONTEND=noninteractive
 RUN mkdir /app
 WORKDIR /app
 
