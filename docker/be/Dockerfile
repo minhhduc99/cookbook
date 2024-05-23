@@ -9,7 +9,7 @@ RUN apt-get update && \
   mkdir ~/python38 && \
   cd ~/python38 && \
   wget https://www.python.org/ftp/python/3.8.16/Python-3.8.16.tgz && \
-  tar -xf Python-3.8.16 && \
+  tar -xf Python-3.8.16.tgz && \
   cd Python-3.8.16 && \
   ./configure --enable-optimizations && \
   make -j$(nproc) && \
