@@ -7,7 +7,7 @@ Making a simple app using React and Flask. Deployed on railway.app and heroku.
 -   setup venv
 -   setup database
 -   setup environment variables
--   build the frontend
+-   build the frontend with node 20
 -   run the server
 -   makefile
 
@@ -19,10 +19,11 @@ Making a simple app using React and Flask. Deployed on railway.app and heroku.
 
 ## Setup Database
 
--   Setup a mysql server (I use XAMPP for development)
--   Create a database
--   Run a python shell and run the following commands:
-    -   `import run.py`
+-   Setup and connect to mysql server
+-   Create a cookbook database
+-   Run a python shell then run the next two following commands:
+    - `python`
+    -   `from backend import db`
     -   `db.create_all()`
 -   Now, the database should be populated with tables
 
@@ -32,10 +33,11 @@ Making a simple app using React and Flask. Deployed on railway.app and heroku.
 | :------------: | :---------: | :------------: |
 |   FLASK_ENV    |     dev     |  development   |
 | JWT_SECRET_KEY |    both     |       -        |
-| MYSQL_PASSWORD |    both     |       -        |
-| MYSQL_USERNAME |    both     |       -        |
-|  MYSQL_SERVER  |    both     |       -        |
-|    MYSQL_DB    |    both     |       -        |
+| DB_PASSWORD |    both     |       -        |
+| DB_USER |    both     |       -        |
+|    DB_NAME   |    both     |       -        |
+| DB_HOST |    both     |       -        |
+| DB_PORT |    both     |       -        |
 
 -   The mysql credentials should match the db created in the previous step
 -   Create a file called `.env` in the root of the application. It should look something like (fill the `...`'s with actual values):
