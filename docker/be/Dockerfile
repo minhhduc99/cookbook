@@ -14,7 +14,7 @@ WORKDIR /app
 #   make -j$(nproc) && \
 #   make install
 COPY ./requirements.txt ./backend/ /app
-COPY ./docker/docker-entrypoint.sh /usr/local/bin/
+COPY ./docker/be/docker-entrypoint.sh /usr/local/bin/
 RUN chmod 755 /usr/local/bin/docker-entrypoint.sh
 RUN python3.8 -m pip install --upgrade pip \
   && python3.8 -m pip install --upgrade setuptools wheel \
