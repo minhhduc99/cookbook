@@ -14,7 +14,7 @@ RUN apt-get update && \
   ./configure --enable-optimizations && \
   make -j$(nproc) && \
   make install
-COPY ./requirements.txt ./backend/ ./run.py /app
+COPY ./requirements.txt ./backend ./run.py /app
 COPY ./docker/be/docker-entrypoint.sh /usr/local/bin/
 RUN chmod 755 /usr/local/bin/docker-entrypoint.sh
 RUN python3.8 -m pip install --upgrade pip \
