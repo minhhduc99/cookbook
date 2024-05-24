@@ -1,0 +1,29 @@
+version: 0.2
+
+env:
+  variables:
+    IMAGE_TAG: $REPOSITORY_URI:fe-$CODEBUILD_BUILD_NUMBER
+
+phases:
+  install:
+    commands:
+      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
+      - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+  pre_build:
+    commands:
+      - 
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password | docker login --username AWS --password-stdin $REPOSITORY_URI
+      - echo Pre-build phase completed.
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t $IMAGE_TAG . -f ./docker/fe/Dockerfile
+      - echo Build completed on `date`
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image to ECR...
+      - docker push $IMAGE_TAG
+      - echo Docker image pushed to ECR successfully.
