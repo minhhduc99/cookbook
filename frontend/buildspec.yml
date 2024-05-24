@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    IMAGE_TAG: $REPOSITORY_URI:FEv$CODEBUILD_BUILD_NUMBER
+    IMAGE_TAG: $REPOSITORY_URI:fe$CODEBUILD_BUILD_NUMBER
 
 phases:
   install:
