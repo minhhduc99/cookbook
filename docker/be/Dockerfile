@@ -1,7 +1,7 @@
 # backend dockerfile
 FROM ubuntu:18.04
 ARG DEBIAN_FRONTEND=noninteractive
-RUN mkdir /app
+RUN mkdir -p /app/backend
 WORKDIR /app
 
 RUN apt-get update && \
@@ -14,7 +14,8 @@ RUN apt-get update && \
   ./configure --enable-optimizations && \
   make -j$(nproc) && \
   make install
-COPY ./requirements.txt ./backend ./run.py /app
+COPY ./requirements.txt ./run.py /app
+COPY ./backend/ /app/backend
 COPY ./docker/be/docker-entrypoint.sh /usr/local/bin/
 RUN chmod 755 /usr/local/bin/docker-entrypoint.sh
 RUN python3.8 -m pip install --upgrade pip \
