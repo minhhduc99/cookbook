@@ -1,7 +1,7 @@
 from datetime import timedelta
 import os
 
-from flask import Flask, jsonify, render_template, 
+from flask import Flask, jsonify, render_template, Response
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
