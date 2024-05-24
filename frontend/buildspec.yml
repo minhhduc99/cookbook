@@ -19,7 +19,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $IMAGE_TAG . -f ./docker/fe/Dockerfile
+      - docker build -t $REPOSITORY_URI:fe-v$CODEBUILD_BUILD_NUMBER . -f ./docker/fe/Dockerfile
       - echo Build completed on `date`
   post_build:
     commands:
