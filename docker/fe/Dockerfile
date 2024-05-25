@@ -16,11 +16,10 @@ COPY ./frontend/ .
 # Build the React application
 RUN npm run build
 
-# Install a simple HTTP server to serve the static files
-RUN npm install -g serve
+FROM nginx:alpine
 
-# Expose the port the app runs on
-EXPOSE 3000
+COPY --from=build /app/build /usr/share/nginx/html
 
-# Start the React application using the HTTP server
-CMD ["serve", "-s", "build", "-l", "3000"]
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
