@@ -1,7 +1,7 @@
 {
     "name": "cookbook",
     "version": "0.1.0",
-    "proxy": "http://cookbook-be-service:30050",
+    "proxy": "http://ac4ef8bbd519e4d35969a974fdd90d52-140325051.us-east-1.elb.amazonaws.com:5000",
     "private": true,
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.3",
