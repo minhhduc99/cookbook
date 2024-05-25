@@ -1,5 +1,5 @@
 # fe dockerfile
-FROM node:20
+FROM node:20 as build
 
 # Set the working directory inside the container
 WORKDIR /app
